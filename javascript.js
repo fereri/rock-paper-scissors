@@ -1,11 +1,14 @@
-function getComputerChoice(choice) {
-    let rand = Math.random;
+let rand = Math.random()
 
+function getComputerChoice(rand) {
     if (rand >= 0.7) {
-        choice = "rock";
-    } else if ( rand >= 0.3) {
-        choice = "paper";
-    } else  {
-        choice = "scissors";
+        return "Rock"
+    } else if (rand >= 0.4 && rand < 0.7) {
+        return "Scissor"
+    } else if (rand < 0.4) {
+        return "Paper"
     }
 }
+
+console.log(rand)
+console.log(getComputerChoice(rand))
