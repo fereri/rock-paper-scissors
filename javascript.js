@@ -30,4 +30,28 @@ function getHumanChoice() {
     }
 }
 
-console.log(getHumanChoice())
+function playRound(humanChoice, computerChoice) {
+    if (humanChoice == "rock" && computerChoice == "rock") {
+        return "Draw"
+    }  else if (humanChoice == "paper" && computerChoice == "paper") {
+        return "Draw"
+    } else if (humanChoice == "scissor" && computerChoice == "scissor") {
+        return "Draw"
+    } else if (humanChoice == "rock" && computerChoice == "scissor") {
+        return humanScore += 1
+    } else if (humanChoice == "paper" && computerChoice == "scissor") {
+        return computerScore += 1
+    } else if (humanChoice == "scissor" && computerChoice == "rock") {
+        return computerScore += 1
+    } else if (humanChoice == "scissor" && computerChoice == "paper") {
+        return humanScore += 1
+    } else if (humanChoice == "rock" && computerChoice == "paper") {
+        return computerScore += 1
+    } else if (humanChoice == "paper" && computerChoice == "rock") {
+        return humanScore += 1
+    }
+
+}
+
+console.log(getComputerChoice(rand))
+console.log(playRound(getHumanChoice(), getComputerChoice(rand)))
