@@ -1,8 +1,7 @@
-let rand = Math.random()
-let humanScore = 0
-let computerScore = 0
+const computerChoice = function getComputerChoice() {
+    let rand = Math.random()
 
-function getComputerChoice(rand) {
+    console.log(rand)
     if (rand >= 0.7) {
         return "rock"
     } else if (rand >= 0.4 && rand < 0.7) {
@@ -10,9 +9,10 @@ function getComputerChoice(rand) {
     } else if (rand < 0.4) {
         return "paper"
     }
+
 }
 
-function getHumanChoice() {
+const humanChoice = function getHumanChoice() {
     let choice = prompt("What do you pick")
 
     switch (choice) {
@@ -30,28 +30,40 @@ function getHumanChoice() {
     }
 }
 
-function playRound(humanChoice, computerChoice) {
-    if (humanChoice == "rock" && computerChoice == "rock") {
-        return "Draw"
-    }  else if (humanChoice == "paper" && computerChoice == "paper") {
-        return "Draw"
-    } else if (humanChoice == "scissor" && computerChoice == "scissor") {
-        return "Draw"
-    } else if (humanChoice == "rock" && computerChoice == "scissor") {
-        return humanScore += 1
-    } else if (humanChoice == "paper" && computerChoice == "scissor") {
-        return computerScore += 1
-    } else if (humanChoice == "scissor" && computerChoice == "rock") {
-        return computerScore += 1
-    } else if (humanChoice == "scissor" && computerChoice == "paper") {
-        return humanScore += 1
-    } else if (humanChoice == "rock" && computerChoice == "paper") {
-        return computerScore += 1
-    } else if (humanChoice == "paper" && computerChoice == "rock") {
-        return humanScore += 1
+console.log(computerChoice())
+
+function playGame() {
+    let humanScore = 0
+    let computerScore = 0
+
+    function playRound(humanChoice, computerChoice) {
+        if (humanChoice == "rock" && computerChoice == "rock") {
+            return "Draw"
+        }  else if (humanChoice == "paper" && computerChoice == "paper") {
+            return "Draw"
+        } else if (humanChoice == "scissor" && computerChoice == "scissor") {
+            return "Draw"
+        } else if (humanChoice == "rock" && computerChoice == "scissor") {
+            return humanScore += 1
+        } else if (humanChoice == "paper" && computerChoice == "scissor") {
+            return computerScore += 1
+        } else if (humanChoice == "scissor" && computerChoice == "rock") {
+            return computerScore += 1
+        } else if (humanChoice == "scissor" && computerChoice == "paper") {
+            return humanScore += 1
+        } else if (humanChoice == "rock" && computerChoice == "paper") {
+            return computerScore += 1
+        } else if (humanChoice == "paper" && computerChoice == "rock") {
+            return humanScore += 1
+        }
+        
     }
 
+    playRound(humanChoice(), computerChoice())
 }
 
-console.log(getComputerChoice(rand))
-console.log(playRound(getHumanChoice(), getComputerChoice(rand)))
+playGame()
+playGame()
+playGame()
+playGame()
+playGame()
